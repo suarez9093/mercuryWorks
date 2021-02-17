@@ -8,11 +8,15 @@ body {
 }
 
 .show {
-  visibility: visible;
+  display: block;
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
+}
+
+p {
+  margin: 0;
 }
 
 /*
@@ -20,11 +24,11 @@ Layout
 =============================================
 */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /*
@@ -33,35 +37,91 @@ Header
 */
 .header {
   display: flex;
-  justify-content: center;
-}
-@media only screen and (max-width: 320px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .header .header-btn {
-    margin: 1em;
-  }
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1/-1;
+  grid-row: 1/3;
 }
 .header .header-btn {
-  padding: 10px;
+  padding: 20px 35px;
   border-radius: 50px;
   border: none;
-  background-color: #29a329;
+  background-color: #7AC06E;
   color: white;
+}
+@media only screen and (max-width: 680px) {
+  .header {
+    flex-direction: column;
+  }
+}
+
+.divider {
+  margin-top: 1em;
+  width: 100%;
+  border-top: 0.25px solid rgba(0, 0, 0, 0.3);
+  grid-column: 1/-1;
+  grid-row: 3;
 }
 
 /*
 Main
 =============================================
 */
+.main {
+  grid-column: 1/-1;
+  grid-row: 5/7;
+  margin-top: 1em;
+}
+.main .joke-container {
+  display: flex;
+}
+@media only screen and (max-width: 680px) {
+  .main .joke-container {
+    justify-content: center;
+  }
+}
+.main .joke {
+  margin: 1em;
+}
+.main .punchline-btn {
+  margin: 1em;
+}
+
+.loading-text {
+  text-align: center;
+}
+
 .error-text {
   color: red;
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
+}
+
+.punchline-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.punchline-btn {
+  align-self: center;
+  padding: 20px 35px;
+  border-radius: 50px;
+  border: none;
+  background-color: #2a7fbf;
+  color: white;
+}
+
+.punchline-text-container {
+  display: flex;
+  justify-content: flex-end;
+}
+@media only screen and (max-width: 680px) {
+  .punchline-text-container {
+    justify-content: center;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -11,55 +11,101 @@ body {
 }
 
 .show {
-    visibility: visible;
+    display: block;
 }
 .hidden {
-    visibility: hidden;
+    display: none;
 }
-
+p {
+    margin: 0;
+}
 
 /*
 Layout 
 =============================================
 */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+@include gridLayout;  
+max-width: 900px;
+margin: 0 auto;
 }
 /*
 Header
 =============================================
 */
 .header {
-  
     display: flex;
-    justify-content: center;
-    @include tiny-screens {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        .header-btn {
-            margin: 1em;
-            // align-self: center
-        }
-    }
+    justify-content: space-between;
+    align-items: center;
+  grid-column: 1 / -1;
+  grid-row: 1 / 3;
     .header-btn {
         @include button;
         background-color: $header-btn-color;
         color: $button-text-color
     }
+
+    @include medium-screens {
+        flex-direction: column;
+        
+    }
 }
 
+
+.divider {
+    @include divider;
+    grid-column: 1 / -1;
+    grid-row: 3;
+}
 /*
 Main
 =============================================
 */
+
+.main {  
+    grid-column: 1 / -1;
+    grid-row: 5 / 7; 
+    margin-top: 1em;
+   .joke-container {
+       display: flex;
+       @include medium-screens {
+        justify-content: center; 
+    }
+   }
+    .joke {
+        margin: 1em;
+    }
+    .punchline-btn {
+        margin: 1em;
+    }
+}
+.loading-text {
+    text-align: center;
+}
 .error-text {
 color: $error-text-color;
 text-transform: uppercase;
 font-weight: bold;
 text-align: center;
+}
+.punchline-btn-container {
+ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.punchline-btn {
+    align-self: center;
+    @include button;
+    background-color: $punchline-btn-color;
+    color: $button-text-color;
+}
+.punchline-text-container {
+    display: flex;
+    justify-content: flex-end;
+    @include medium-screens {
+        justify-content: center;
+        
+    }
 }

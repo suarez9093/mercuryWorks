@@ -1,27 +1,26 @@
-@mixin tiny-screens() {
-    @media only screen and (max-width: 320px) {
-      @content;
-    }
-  }
-  @mixin small-screens() {
-    @media only screen and (max-width: 480px) {
-      @content;
-    }
-  }
+
   @mixin medium-screens() {
     @media only screen and (max-width: 680px) {
       @content;
     }
   }
-  @mixin large-screens() {
-    @media only screen and (max-width: 960px) {
-      @content;
-    }
-  }
-  @mixin button($padding: 10px,$borderRadius: 50px) {
+ 
+  @mixin button($padding: 20px 35px,$borderRadius: 50px) {
       padding: $padding;
+     
       border-radius: $borderRadius;
       border: none;
   }
 
- 
+  @mixin gridLayout {
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     grid-template-rows: 20% 20% 20% 20% 20%;
+  }
+
+ @mixin divider {
+     margin-top: 1em;
+     width: 100%;
+     border-top: .25px solid rgba($color: #000000, $alpha: .3);
+     
+ }

@@ -9,28 +9,35 @@ const loadingText = document.querySelector('.loading-text');
 // Functions
 // =============================================================
 async function getRandomJoke() {
-  loadingText.classList.add('show');
-  errorMessage.classList.remove('show');
+  errorMessage.style.display = 'none';
+  joke.innerText = '';
+  punchline.innerText = '';
+  punchline.style.display = 'none';
   try {
     const url = 'https://official-joke-api.appspot.com/jokes/random';
     let response = await fetch(url);
     let data = await response.json();
+    // throw 'error';
     joke.innerText = data.setup;
     punchline.innerText = data.punchline;
     loadingText.classList.add('hidden');
   } catch (err) {
     console.error(err);
+    errorMessage.style.display = 'block';
+    errorMessage.classList.remove('hidden');
     errorMessage.classList.add('show');
+    punchlineBtn.classList.add('hidden');
+    loadingText.classList.add('hidden');
   }
 }
 
 function punchLine(e) {
-  punchline.classList.toggle('hidden');
   if (e.target.innerText === 'Show Punchline') {
-    console.log('loading');
     e.target.innerText = 'Hide Punchline';
+    punchline.style.display = 'block';
   } else if (e.target.innerText === 'Hide Punchline') {
     e.target.innerText = 'Show Punchline';
+    punchline.style.display = 'none';
   }
 }
 
