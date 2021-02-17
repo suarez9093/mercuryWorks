@@ -7,10 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercury Works</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
 
 <body>
-
+    <header class="header"><button class="header-btn">Get a Random Joke</button>
+        <a class="header-link" href="https://github.com/15Dkatz/official_joke_api " target="blank">View API Docs</a>
+    </header>
+    <main class="main">
+        <p class="loading-text">Loading your joke...</p>
+        <p class="error-text">There was an error loading your joke.</p>
+        <p class="joke"></p>
+        <button class="punchline-btn">Show Punchline</button>
+        <p class="punchline"></p><i class="fas fa-quote-left"></i>
+        <!-- <div class="joke-upper-container">
+            <i class="fas fa-quote-left"></i>
+            <p class="joke-text"></p>
+        </div>
+        
+        <i class="fas fa-quote-right"></i> -->
+    </main>
     <script src="./assets/js/logic.js"></script>
 </body>
 
